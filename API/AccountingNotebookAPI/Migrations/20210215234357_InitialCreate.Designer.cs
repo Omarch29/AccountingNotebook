@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountingNotebookAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210215215341_InitialCreate")]
+    [Migration("20210215234357_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,7 +53,7 @@ namespace AccountingNotebookAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int>("AccountId")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("Amount")
@@ -80,9 +80,11 @@ namespace AccountingNotebookAPI.Migrations
 
             modelBuilder.Entity("AccountingNotebookAPI.Models.Transaction", b =>
                 {
-                    b.HasOne("AccountingNotebookAPI.Models.Account", null)
+                    b.HasOne("AccountingNotebookAPI.Models.Account", "Account")
                         .WithMany("Transactions")
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,5 +20,8 @@ namespace AccountingNotebookAPI.Models
         public DateTime EffectiveDate { get; set; }
         public double BalanceAmount { get; set; }
         public double CreditBalance { get; set; }
+        public Account Account { get; set; }
+        [ForeignKey("Account")]
+        public int AccountId { get; set; }
     }
 }

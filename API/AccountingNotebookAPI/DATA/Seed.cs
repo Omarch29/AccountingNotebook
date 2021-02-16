@@ -22,8 +22,8 @@ namespace AccountingNotebookAPI.DATA
             {
                 Id = 1,
                 Balance = 98.5d,
-                AvailableCreditBalance = 195,
-                MaxCreditBalance = 200,
+                AvailableCreditBalance = 195d,
+                MaxCreditBalance = 200d,
                 FirstName = "Omar",
                 LastName = "Chahdi",
                 BirthDate = (DateTime.Now).AddYears(-28)
@@ -33,12 +33,12 @@ namespace AccountingNotebookAPI.DATA
 
             var exampleTransactions = new Transaction[]
             {
-                new Transaction {Id = 1, Amount = -4d, BalanceAmount=96, CreditBalance=200, EffectiveDate=DateTime.Now, Type=TransactionType.debit },
-                new Transaction {Id = 2, Amount = -5d, BalanceAmount=91, CreditBalance=200, EffectiveDate=DateTime.Now, Type=TransactionType.debit },
-                new Transaction {Id = 3, Amount = -1d, BalanceAmount=91, CreditBalance=199, EffectiveDate=DateTime.Now, Type=TransactionType.credit },
-                new Transaction {Id = 4, Amount = -2.5d, BalanceAmount=88.5d,CreditBalance=199, EffectiveDate=DateTime.Now, Type=TransactionType.debit },
-                new Transaction {Id = 5, Amount = -4d, BalanceAmount=88.5d, CreditBalance=195, EffectiveDate=DateTime.Now, Type=TransactionType.credit },
-                new Transaction {Id = 6, Amount = 10d, BalanceAmount=98.5d, CreditBalance=195 ,EffectiveDate=DateTime.Now, Type=TransactionType.debit },
+                new Transaction {Id = 1, Amount = -4d, BalanceAmount=96, CreditBalance=200d, EffectiveDate=DateTime.Now, Type=TransactionType.debit, AccountId = 1},
+                new Transaction {Id = 2, Amount = -5d, BalanceAmount=91, CreditBalance=200d, EffectiveDate=DateTime.Now, Type=TransactionType.debit, AccountId = 1 },
+                new Transaction {Id = 3, Amount = -1d, BalanceAmount=91, CreditBalance=199d, EffectiveDate=DateTime.Now, Type=TransactionType.credit, AccountId = 1 },
+                new Transaction {Id = 4, Amount = -2.5d, BalanceAmount=88.5d,CreditBalance=199d, EffectiveDate=DateTime.Now, Type=TransactionType.debit, AccountId = 1 },
+                new Transaction {Id = 5, Amount = -4d, BalanceAmount=88.5d, CreditBalance=195d, EffectiveDate=DateTime.Now, Type=TransactionType.credit, AccountId = 1 },
+                new Transaction {Id = 6, Amount = 10d, BalanceAmount=98.5d, CreditBalance=195d ,EffectiveDate=DateTime.Now, Type=TransactionType.debit, AccountId = 1 },
             };
 
             _context.Transactions.AddRange(exampleTransactions);

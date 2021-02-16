@@ -36,7 +36,7 @@ namespace AccountingNotebookAPI.Migrations
                     EffectiveDate = table.Column<DateTime>(nullable: false),
                     BalanceAmount = table.Column<double>(nullable: false),
                     CreditBalance = table.Column<double>(nullable: false),
-                    AccountId = table.Column<int>(nullable: true)
+                    AccountId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +46,7 @@ namespace AccountingNotebookAPI.Migrations
                         column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
